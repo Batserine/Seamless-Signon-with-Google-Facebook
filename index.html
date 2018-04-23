@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SDQI</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <meta name="google-signin-client_id" content="1047270062679-fd2mdj30q8a5mqn99nqod7nc2bd5b2re.apps.googleusercontent.com">
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+
+    <style>
+        .data{
+            display:none;
+        }
+        .data-2{
+            display:none;
+        }
+        .data-5{
+            display:none;
+        }
+        .data-6{
+            display:none;
+        }
+
+        .button {
+            background-color: #43609C; /* Blue */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            transition-duration: 0.4s;
+        }
+        .button2:hover {
+
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+        a:link, a:visited {
+            background-color: #00FF00;
+            color: white;
+            padding: 14px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+
+        a:hover, a:active {
+            background-color: limegreen;
+        }
+    </style>
+
+</head>
+
+<body onload="random()">
+<div align="center">
+    <div class="data-1">
+<h4>Sign In With</h4>
+    </div>
+    <div class="data-2">
+        <h4>Signed In as</h4>
+    </div>
+    <br>
+    <br>
+            <!--Google signin part-->
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <div class="data">
+        <div align="center">
+    <p>Profile</p>
+    <img id="pic" class="img-circle" width="100" height="100"/>
+
+    <p>E-mail Address</p>
+        <p id="email"></p>
+        <button onclick="signOut()" class="btn btn-danger">SignOut</button>
+        </div>
+    </div>
+<br>
+
+            <!--Facebook signin part-->
+     <!--To initialize and set-up Facebook JS SDK-->
+    <div class="data-3">
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId            : '169222953778152',
+                autoLogAppEvents : true,
+                xfbml            : true,
+                version          : 'v2.12'
+            });
+
+            FB.getLoginStatus(function(response) {
+
+            });
+            FB.AppEvents.logPageView();
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+
+
+    </script>
+    </div>
+
+    <div class="data-4">
+    <div id="status"></div>
+    <button class="button button2" onclick="fblogin()">Facebook</button>
+    <br>
+    </div>
+    <!--<button onclick="random()">something</button>-->
+
+
+    <div class="data-5">
+    <div id="demo"></div>
+        <br>
+    <button onclick="getInfo()">Profile</button>
+    </div>
+    <br>
+
+    <div class="data-6">
+    <button onclick="logOut()" class="btn btn-danger">LogOut</button>
+    </div>
+
+
+                            <!--LINE signin part-->
+    <!--<div class="data-8" >-->
+        <!--<script>-->
+            <!--function random(){-->
+                <!--var x1 = "https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1575875205&redirect_uri=https%3A%2F%2Flocalhost:63342&state=";-->
+                <!--var x2 = parseInt(Math.random()*100000000000);-->
+                <!--var x3 = "afasdfgfddgf&scope=openid%20profile&nonce=09876xyz";-->
+                <!--x1 = x1.concat(x2);-->
+                <!--x1 = x1.concat(x3);-->
+
+                <!--console.log(x1);-->
+                <!--// alert(x1);-->
+                <!--document.getElementById("a").setAttribute("href", x1);-->
+            <!--}-->
+        <!--</script>-->
+            <!--<a id="a"-->
+               <!--{-->
+                <!--alg= "HS256"-->
+                <!--}>-->
+                <!--LINE-->
+            <!--</a>-->
+    <!--</div>-->
+</div>
+</body>
+</html>
